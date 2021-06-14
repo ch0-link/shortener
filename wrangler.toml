@@ -1,0 +1,26 @@
+type = "webpack"
+zone_id = ""
+account_id = ""
+workers_dev = true
+webpack_config = "webpack.config.js"
+vars = { ENVIRONMENT = "development", DIRECT_DOMAIN = "d.ch0.link" }
+name = "ch0-link-development"
+
+kv_namespaces = [
+    { binding = "links", id = "", preview_id = "" }
+]
+
+[env.staging]
+name = "ch0-link-staging"
+vars = { ENVIRONMENT = "staging" }
+workers_dev = true
+
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+name = "ch0-link"
+workers_dev = false
+routes = ["ch0.link/*", "d.ch0.link/*"]
+kv_namespaces = [
+    { binding = "links", id = "", preview_id = "" }
+]
